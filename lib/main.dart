@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:app_negocio/vistas/home_view.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:shrink_sidemenu/shrink_sidemenu.dart';
-
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentDirectory =
+      await path_provider.getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDirectory.path);
+  await Hive.openBox('productos');
+  await Hive.openBox('ventas');
+
   runApp(const MyApp());
 }
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-class CustomButtonHome extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String name;
   final Color color;
   final Color txcolor;
   final Function() onPressed;
 
-  const CustomButtonHome({
+  const CustomButton({
     Key? key,
     required this.name,
     required this.color,
@@ -16,7 +16,7 @@ class CustomButtonHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150.0, 
+      width: 150, 
       height: 60.0, 
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -28,15 +28,17 @@ class CustomButtonHome extends StatelessWidget {
           onPrimary: txcolor,
         ),
         onPressed: onPressed,
-        child: Text(
-          name,
-          style: TextStyle(
-            color: txcolor,
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
+        child: 
+          Text(  
+            name,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: txcolor,
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
-      ),
     );
   }
 }
